@@ -33,7 +33,7 @@ class RandomCocktail extends React.Component {
           <div className="container">
             <div className="columns is-centred">
               <div className="column is-two-thirds-desktop">
-                <h1 className="title">Welcome to Cocktail Bored</h1>
+                <h1 className="title is-1">Welcome to Cocktail Bored</h1>
                 <h2 className="subtitle">Try the random cocktail or search below!</h2>
               </div>
               <div className="column is-one-third">

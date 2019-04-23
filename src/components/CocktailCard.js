@@ -10,7 +10,7 @@ const CocktailCard = (props) => {
         </figure>
       </div>
       <div className="card-content">
-        <div className="title is-5">{props.strDrink}</div>
+        <div className="subtitle is-5">{props.strDrink}</div>
       </div>
     </div>
 
