@@ -1,9 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 
 import 'bulma'
 
 import Home from './components/Home'
+import CocktailShow from './components/CocktailShow'
 
 class App extends React.Component {
   constructor() {
@@ -13,9 +15,14 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <Home />
-      </div>
+      <Router>
+        <div className="container">
+          <Switch>
+            <Route path='/cocktails/:id' component={CocktailShow} />
+            <Route exact path='/' component={Home} />
+          </Switch>
+        </div>
+      </Router>
     )
   }
 }

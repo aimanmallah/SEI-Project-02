@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import CocktailCard from './CocktailCard'
 
@@ -15,7 +16,9 @@ class CocktailIndex extends React.Component {
 
         {this.props.drinks.map(cocktail =>
           <div key={cocktail.idDrink} className="column is-one-fifth-desktop is-one-half-tablet">
-            <CocktailCard {...cocktail}/>
+            <Link to={`/cocktails/${cocktail.idDrink}`}>
+              <CocktailCard {...cocktail}/>
+            </Link>
           </div>
 
         )}
