@@ -3,6 +3,7 @@ import React from 'react'
 import axios from 'axios'
 
 import CocktailIndex from './CocktailIndex'
+import RandomCocktail from './RandomCocktail'
 
 class Home extends React.Component {
   constructor(){
@@ -10,13 +11,16 @@ class Home extends React.Component {
 
     this.state = {
       search: [],
-      data: [],
+      data: null,
       filter: 'ingredient'
     }
+
+    this.searchResultsSection = React.createRef()
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleFilterChange = this.handleFilterChange.bind(this)
+    this.handleScrollClick = this.handleScrollClick.bind(this)
   }
 
   handleChange(e){
@@ -40,21 +44,24 @@ class Home extends React.Component {
     this.setState({filter: filter})
   }
 
+  handleScrollClick() {
+    if(this.state.data)
+      window.scrollBy({
+        top: 450,
+        behavior: 'smooth',
+        block: 'nearest'
+      })
+    console.log('clicked')
+  }
+
+
   render() {
-    console.log(this.state.data)
-    console.log(this.state.filter)
+    console.log(this.searchResultsSection.current)
     return(
       <section>
-        <div className="hero is-medium is-dark is-bold">
-          <div className="hero-body">
-            <div className="container">
-              <h1 className="title">Welcome to Cocktail Bored</h1>
-              <h2 className="subtitle">Try the random cocktail or search below!</h2>
-            </div>
-          </div>
-        </div>
+        <RandomCocktail />
         <div className="container">
-          <section className="section">
+          <section className="section" ref={this.searchResultsSection}>
             <form onSubmit={this.handleSubmit}>
 
               <div className="field">
@@ -79,7 +86,7 @@ class Home extends React.Component {
                   />
                 </div>
               </div>
-              <button className="button is-primary">Search</button>
+              <button className="button is-primary" onClick={this.handleScrollClick}>Search</button>
             </form>
           </section>
           <section className="section">
