@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 
+import './style.scss'
+
 import 'bulma'
 
 import Home from './components/Home'
@@ -18,7 +20,7 @@ class App extends React.Component {
     return (
       <Router>
         <NavBar />
-        <div className="container">
+        <div>
           <Switch>
             <Route path='/cocktails/:id' component={CocktailShow} />
             <Route exact path='/' component={Home} />

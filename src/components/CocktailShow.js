@@ -50,7 +50,7 @@ class CocktailShow extends React.Component {
     console.log(this.state)
     if(!this.state.cocktail) return null
     return (
-      <section className="section">
+      <div className="container">
         <div className="columns">
           <div className="column is-one-third-desktop">
             <img src={this.state.cocktail.image} alt={this.state.cocktail.name} />
@@ -83,7 +83,7 @@ class CocktailShow extends React.Component {
           </div>
 
         </div>
-      </section>
+      </div>
     )
   }
 }
