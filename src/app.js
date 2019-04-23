@@ -6,6 +6,7 @@ import 'bulma'
 
 import Home from './components/Home'
 import CocktailShow from './components/CocktailShow'
+import NavBar from './components/Navbar'
 
 class App extends React.Component {
   constructor() {
@@ -16,6 +17,7 @@ class App extends React.Component {
   render() {
     return (
       <Router>
+        <NavBar />
         <div className="container">
           <Switch>
             <Route path='/cocktails/:id' component={CocktailShow} />

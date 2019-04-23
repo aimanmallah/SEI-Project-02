@@ -35,6 +35,10 @@ class CocktailShow extends React.Component {
         const cocktail = {
           image: res.data.drinks[0].strDrinkThumb,
           name: res.data.drinks[0].strDrink,
+          instructions: res.data.drinks[0].strInstructions,
+          glass: res.data.drinks[0].strGlass,
+          alcoholic: res.data.drinks[0].strAlcoholic,
+          category: res.data.drinks[0].strCategory,
           ingredients
         }
 
@@ -53,11 +57,28 @@ class CocktailShow extends React.Component {
           </div>
           <div className="column is-two-thirds-desktop">
             <div className="title is-3">{this.state.cocktail.name}</div>
-            <div className="content">
-              <div className="subtitle is-3">Ingredients</div>
-              {this.state.cocktail.ingredients.map(ingredient =>
-                <p key={ingredient.drink}>{ingredient.drink}: {ingredient.measure}</p>
-              )}
+            <hr />
+            <div className="column is-full-width">
+              <div className="headerDetails"><strong>Category:</strong> {this.state.cocktail.category}</div>
+              <div className="headerDetails"><strong>Glass to use:</strong> {this.state.cocktail.glass}</div>
+              <div className="headerDetails"><strong>Type:</strong> {this.state.cocktail.alcoholic}</div>
+            </div>
+            <hr />
+            <div className="columns">
+              <div className="column is-one-half">
+                <div className="subtitle is-4">Ingredients</div>
+                <div className="content">
+                  <ul>
+                    {this.state.cocktail.ingredients.map(ingredient =>
+                      <li key={ingredient.drink}><strong>{ingredient.drink}</strong> {ingredient.measure}</li>
+                    )}
+                  </ul>
+                </div>
+              </div>
+              <div className="column is-one-half">
+                <div className="subtitle is-4">Instructions</div>
+                <p>{this.state.cocktail.instructions}</p>
+              </div>
             </div>
           </div>
 
