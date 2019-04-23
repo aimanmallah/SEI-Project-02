@@ -2,6 +2,8 @@ import React from 'react'
 
 import axios from 'axios'
 
+import CocktailIndex from './CocktailIndex'
+
 class Home extends React.Component {
   constructor(){
     super()
@@ -44,6 +46,9 @@ class Home extends React.Component {
           </div>
           <button className="button is-primary">Search</button>
         </form>
+        <section className="section">
+          <CocktailIndex {...this.state.data}/>
+        </section>
       </section>
     )
   }
