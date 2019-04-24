@@ -6,6 +6,7 @@ $primary-color: #d1003b;
 
 * {
   box-sizing: border-box;
+  font-family: $secondary-font;
 }
 
 body {
@@ -37,7 +38,9 @@ div {
     font-family: $primary-font;
   }
 
-
+.navbar-item img {
+  max-height: 3rem;
+}
 
 }
 
