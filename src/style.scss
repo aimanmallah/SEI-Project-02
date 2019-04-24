@@ -22,6 +22,17 @@ img.random-image {
   height: 120px;
 }
 
+img.cocktail-show-image {
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px 0 rgba(0,0,0,0.5);
+}
+
 .title, .subtitle {
   font-family: $primary-font;
+}
+
+.column.headerDetails {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }

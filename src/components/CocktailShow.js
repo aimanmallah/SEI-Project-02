@@ -65,15 +65,15 @@ class CocktailShow extends React.Component {
         <section className="section">
           <div className="columns">
             <div className="column is-one-third-desktop">
-              <img src={this.state.cocktail.image} alt={this.state.cocktail.name} />
+              <img src={this.state.cocktail.image} alt={this.state.cocktail.name} className="cocktail-show-image"/>
             </div>
             <div className="column is-two-thirds-desktop">
               <div className="title is-3">{this.state.cocktail.name}</div>
               <hr />
-              <div className="column is-full-width">
-                <div className="headerDetails"><strong>Category:</strong> {this.state.cocktail.category}</div>
-                <div className="headerDetails"><strong>Glass to use:</strong> {this.state.cocktail.glass}</div>
-                <div className="headerDetails"><strong>Type:</strong> {this.state.cocktail.alcoholic}</div>
+              <div className="column is-full-width headerDetails">
+                <div><strong>Category:</strong> {this.state.cocktail.category}</div>
+                <div><strong>Glass to use:</strong> {this.state.cocktail.glass}</div>
+                <div><strong>Type:</strong> {this.state.cocktail.alcoholic}</div>
               </div>
               <hr />
               <div className="columns">
