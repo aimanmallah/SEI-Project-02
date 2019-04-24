@@ -27,9 +27,9 @@ class Home extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    const endpoint = this.state.filter === 'ingredient' ? 'filter' : 'search'
+    const endpoint = this.state.filter === 'ingredient' ? 'filter.php?i' : 'search.php?s'
 
-    axios.get(`https://www.thecocktaildb.com/api/json/v1/1/${endpoint}.php?i=${this.state.search.searchInput}`)
+    axios.get(`https://www.thecocktaildb.com/api/json/v1/1/${endpoint}=${this.state.search.searchInput}`)
       .then(res => this.setState({ data: res.data }))
       .then(() => this.searchResultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' }))
   }

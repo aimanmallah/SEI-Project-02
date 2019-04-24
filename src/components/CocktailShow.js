@@ -19,9 +19,6 @@ class CocktailShow extends React.Component {
     this.getData()
   }
 
-  componentDidUpdate(){
-    this.getData()
-  }
 
   getData(){
     axios.get('https://www.thecocktaildb.com/api/json/v1/1/lookup.php', {
@@ -62,7 +59,6 @@ class CocktailShow extends React.Component {
   }
 
   render() {
-    console.log(this.state.cocktail)
     if(!this.state.cocktail) return null
     return (
       <div className="container">
@@ -100,7 +96,7 @@ class CocktailShow extends React.Component {
           </div>
           <hr />
           <div className="container">
-            <SimilarCocktails {...this.state.cocktail} />
+            <SimilarCocktails {...this.state.cocktail} getData={this.getData} />
           </div>
         </section>
       </div>
