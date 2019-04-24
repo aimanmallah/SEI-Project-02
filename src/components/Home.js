@@ -15,12 +15,9 @@ class Home extends React.Component {
       filter: 'ingredient'
     }
 
-    this.searchResultsSection = React.createRef()
-
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleFilterChange = this.handleFilterChange.bind(this)
-    this.handleScrollClick = this.handleScrollClick.bind(this)
   }
 
   handleChange(e){
@@ -30,13 +27,11 @@ class Home extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    if(this.state.filter === 'ingredient'){
-      axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${this.state.search.searchInput}`)
-        .then(res => this.setState({ data: res.data }))
-    } else {
-      axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${this.state.search.searchInput}`)
-        .then(res => this.setState({ data: res.data }))
-    }
+    const endpoint = this.state.filter === 'ingredient' ? 'filter' : 'search'
+
+    axios.get(`https://www.thecocktaildb.com/api/json/v1/1/${endpoint}.php?i=${this.state.search.searchInput}`)
+      .then(res => this.setState({ data: res.data }))
+      .then(() => this.searchResultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' }))
   }
 
   handleFilterChange(e){
@@ -44,24 +39,13 @@ class Home extends React.Component {
     this.setState({filter: filter})
   }
 
-  handleScrollClick() {
-    if(this.state.data)
-      window.scrollBy({
-        top: 450,
-        behavior: 'smooth',
-        block: 'nearest'
-      })
-    console.log('clicked')
-  }
-
 
   render() {
-    console.log(this.searchResultsSection.current)
     return(
       <section>
         <RandomCocktail />
         <div className="container">
-          <section className="section" ref={this.searchResultsSection}>
+          <section className="section" ref={elem => this.searchResultsSection = elem}>
             <form onSubmit={this.handleSubmit}>
 
               <div className="field">
@@ -86,7 +70,7 @@ class Home extends React.Component {
                   />
                 </div>
               </div>
-              <button className="button is-primary" onClick={this.handleScrollClick}>Search</button>
+              <button className="button is-primary">Search</button>
             </form>
           </section>
           <section className="section">
