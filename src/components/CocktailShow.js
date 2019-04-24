@@ -1,6 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 
+import SimilarCocktails from './SimilarCocktails'
+
 class CocktailShow extends React.Component {
 
   constructor(props){
@@ -49,7 +51,7 @@ class CocktailShow extends React.Component {
   }
 
   render() {
-    console.log(this.state)
+    console.log(this.state.cocktail)
     if(!this.state.cocktail) return null
     return (
       <div className="container">
@@ -84,8 +86,8 @@ class CocktailShow extends React.Component {
                 </div>
               </div>
             </div>
-
           </div>
+          <SimilarCocktails {...this.state.cocktail} />
         </section>
       </div>
     )
