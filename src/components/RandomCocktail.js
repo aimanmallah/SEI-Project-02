@@ -10,9 +10,15 @@ class RandomCocktail extends React.Component {
     this.state = {
       data: []
     }
+
+    this.handleRandomCocktail = this.handleRandomCocktail.bind(this)
   }
 
-  componentDidMount() {
+  componentDidMount(){
+    this.getData()
+  }
+
+  getData() {
     axios.get('https://www.thecocktaildb.com/api/json/v1/1/random.php')
       .then(res => {
         const cocktail = {
@@ -22,6 +28,10 @@ class RandomCocktail extends React.Component {
         }
         this.setState({ cocktail })
       })
+  }
+
+  handleRandomCocktail(){
+    this.getData()
   }
 
   render(){
@@ -34,11 +44,11 @@ class RandomCocktail extends React.Component {
             <div className="columns is-centred">
               <div className="column is-two-thirds-desktop">
                 <h1 className="title is-1">Welcome to Cocktail Bored</h1>
-                <h2 className="subtitle">Try the random cocktail or search below!</h2>
+                <h2 className="subtitle">Try the cocktail shaker for a random cocktail</h2>
               </div>
-              <div className="column is-one-third">
-                <div className="subtitle is-4">Try this one</div>
-                <Link to={`/cocktails/${this.state.cocktail.id}`}><div className="is-size-3">{this.state.cocktail.name}</div></Link>
+              <div className="column is-one-third has-text-centred">
+                <button className="button random-cocktail-button" onClick={this.handleRandomCocktail}>Shake me a cocktail</button>
+                <Link to={`/cocktails/${this.state.cocktail.id}`}><div className="subtitle is-size-3">{this.state.cocktail.name}</div></Link>
               </div>
             </div>
           </div>

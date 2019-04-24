@@ -26,9 +26,9 @@ class Home extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    const endpoint = this.state.filter === 'ingredient' ? 'filter' : 'search'
+    const endpoint = this.state.filter === 'ingredient' ? 'filter.php?i' : 'search.php?s'
 
-    axios.get(`https://www.thecocktaildb.com/api/json/v1/1/${endpoint}.php?i=${this.state.search.searchInput}`)
+    axios.get(`https://www.thecocktaildb.com/api/json/v1/1/${endpoint}=${this.state.search.searchInput}`)
       .then(res => this.setState({ data: res.data }))
       .then(() => this.searchResultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' }))
   }
@@ -46,7 +46,6 @@ class Home extends React.Component {
         <div className="container">
           <section className="section" ref={elem => this.searchResultsSection = elem}>
             <form onSubmit={this.handleSubmit}>
-
               <div className="field">
                 <div className="control" onChange={this.handleFilterChange}>
                   <label className="radio">
@@ -57,9 +56,8 @@ class Home extends React.Component {
                   </label>
                 </div>
               </div>
-
-              <div className="field">
-                <div className="control">
+              <div className="field has-addons">
+                <div className="control is-expanded">
                   <input
                     className="input"
                     type="text"
@@ -68,8 +66,10 @@ class Home extends React.Component {
                     onChange={this.handleChange}
                   />
                 </div>
+                <div className="control">
+                  <button className="button search-button">Search</button>
+                </div>
               </div>
-              <button className="button is-primary">Search</button>
             </form>
           </section>
           <section className="section">
