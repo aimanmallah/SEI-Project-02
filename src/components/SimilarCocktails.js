@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import axios from 'axios'
 
@@ -16,7 +17,7 @@ class SimilarCocktails extends React.Component {
     axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${this.props.ingredients[0].drink}`)
       .then(res =>{
 
-        const drinks = res.data.drinks.slice(0,3)
+        const drinks = res.data.drinks.slice(0,5)
         console.log(drinks)
 
         this.setState({ data: drinks })
@@ -28,9 +29,25 @@ class SimilarCocktails extends React.Component {
     console.log(this.state.data, 'props')
     return(
       <div>
-        {this.state.data.map(drink =>
-          <div key={drink.idDrink}>{drink.strDrink}</div>
-        )}
+        <div className="subtitle is-4">Similar cocktails</div>
+        <div className="columns">
+          {this.state.data.map(drink =>
+            <div key={drink.idDrink} className="column is-one-fifth-desktop is-one-third-tablet">
+              <Link to={`/cocktails/${drink.idDrink}`}>
+                <div className="card">
+                  <div className="card-image">
+                    <figure>
+                      {<img src ={drink.strDrinkThumb} alt={drink.strDrink} />}
+                    </figure>
+                  </div>
+                  <div className="card-content">
+                    <div className="subtitle is-6">{drink.strDrink}</div>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          )}
+        </div>
       </div>
     )
   }

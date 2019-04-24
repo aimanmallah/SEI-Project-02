@@ -11,9 +11,19 @@ class CocktailShow extends React.Component {
     this.state = {
       cocktail: null
     }
+
+    this.getData = this.getData.bind(this)
   }
 
   componentDidMount(){
+    this.getData()
+  }
+
+  componentDidUpdate(){
+    this.getData()
+  }
+
+  getData(){
     axios.get('https://www.thecocktaildb.com/api/json/v1/1/lookup.php', {
       params: {
         i: this.props.match.params.id
@@ -43,6 +53,7 @@ class CocktailShow extends React.Component {
           glass: data.strGlass,
           alcoholic: data.strAlcoholic,
           category: data.strCategory,
+          id: data.idDrink,
           ingredients
         }
 
@@ -87,7 +98,10 @@ class CocktailShow extends React.Component {
               </div>
             </div>
           </div>
-          <SimilarCocktails {...this.state.cocktail} />
+          <hr />
+          <div className="container">
+            <SimilarCocktails {...this.state.cocktail} />
+          </div>
         </section>
       </div>
     )
