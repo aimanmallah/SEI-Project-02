@@ -2,7 +2,6 @@ import React from 'react'
 
 const CocktailCard = (props) => {
   return(
-
     <div className="card">
       <div className="card-image">
         <figure>
