@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link, animatedScroll as scroll} from 'react-scroll'
 import axios from 'axios'
 
 import CocktailIndex from './CocktailIndex'
@@ -31,7 +30,7 @@ class Home extends React.Component {
   handleSubmit(e) {
     e.preventDefault()
     if(this.state.filter === 'ingredient'){
-      axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${  this.state.search.searchInput}`)
+      axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${this.state.search.searchInput}`)
         .then(res => this.setState({ data: res.data }))
     } else {
       axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${this.state.search.searchInput}`)
