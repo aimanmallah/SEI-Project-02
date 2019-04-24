@@ -1,6 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 
+import SimilarCocktails from './SimilarCocktails'
+
 class CocktailShow extends React.Component {
 
   constructor(props){
@@ -9,9 +11,16 @@ class CocktailShow extends React.Component {
     this.state = {
       cocktail: null
     }
+
+    this.getData = this.getData.bind(this)
   }
 
   componentDidMount(){
+    this.getData()
+  }
+
+
+  getData(){
     axios.get('https://www.thecocktaildb.com/api/json/v1/1/lookup.php', {
       params: {
         i: this.props.match.params.id
@@ -41,6 +50,7 @@ class CocktailShow extends React.Component {
           glass: data.strGlass,
           alcoholic: data.strAlcoholic,
           category: data.strCategory,
+          id: data.idDrink,
           ingredients
         }
 
@@ -49,22 +59,21 @@ class CocktailShow extends React.Component {
   }
 
   render() {
-    console.log(this.state)
     if(!this.state.cocktail) return null
     return (
       <div className="container">
         <section className="section">
           <div className="columns">
             <div className="column is-one-third-desktop">
-              <img src={this.state.cocktail.image} alt={this.state.cocktail.name} />
+              <img src={this.state.cocktail.image} alt={this.state.cocktail.name} className="cocktail-show-image"/>
             </div>
             <div className="column is-two-thirds-desktop">
               <div className="title is-3">{this.state.cocktail.name}</div>
               <hr />
-              <div className="column is-full-width">
-                <div className="headerDetails"><strong>Category:</strong> {this.state.cocktail.category}</div>
-                <div className="headerDetails"><strong>Glass to use:</strong> {this.state.cocktail.glass}</div>
-                <div className="headerDetails"><strong>Type:</strong> {this.state.cocktail.alcoholic}</div>
+              <div className="column is-full-width headerDetails">
+                <div><strong>Category:</strong> {this.state.cocktail.category}</div>
+                <div><strong>Glass to use:</strong> {this.state.cocktail.glass}</div>
+                <div><strong>Type:</strong> {this.state.cocktail.alcoholic}</div>
               </div>
               <hr />
               <div className="columns">
@@ -84,7 +93,10 @@ class CocktailShow extends React.Component {
                 </div>
               </div>
             </div>
-
+          </div>
+          <hr />
+          <div className="container">
+            <SimilarCocktails {...this.state.cocktail} getData={this.getData} />
           </div>
         </section>
       </div>
