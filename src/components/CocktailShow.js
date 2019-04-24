@@ -18,27 +18,29 @@ class CocktailShow extends React.Component {
       }
     })
       .then(res => {
-        const drinks = Object.keys(res.data.drinks[0])
-          .filter(key => key.match(/ingredient/i))
-          .filter(key => res.data.drinks[0][key].trim())
-          .map(key => res.data.drinks[0][key].trim())
+        const data = res.data.drinks[0]
 
-        const measures = Object.keys(res.data.drinks[0])
+        const drinks = Object.keys(data)
+          .filter(key => key.match(/ingredient/i))
+          .filter(key => !!data[key] || data[key] === ' ')
+          .map(key => data[key].trim())
+
+        const measures = Object.keys(data)
           .filter(key => key.match(/measure/i))
-          .filter(key => res.data.drinks[0][key].trim())
-          .map(key => res.data.drinks[0][key].trim())
+          .filter(key => !!data[key] || data[key] === ' ')
+          .map(key => data[key].trim())
 
         const ingredients = drinks.map((drink, index) => {
           return { drink: drinks[index], measure: measures[index] }
         })
 
         const cocktail = {
-          image: res.data.drinks[0].strDrinkThumb,
-          name: res.data.drinks[0].strDrink,
-          instructions: res.data.drinks[0].strInstructions,
-          glass: res.data.drinks[0].strGlass,
-          alcoholic: res.data.drinks[0].strAlcoholic,
-          category: res.data.drinks[0].strCategory,
+          image: data.strDrinkThumb,
+          name: data.strDrink,
+          instructions: data.strInstructions,
+          glass: data.strGlass,
+          alcoholic: data.strAlcoholic,
+          category: data.strCategory,
           ingredients
         }
 
