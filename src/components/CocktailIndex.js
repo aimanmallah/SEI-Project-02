@@ -15,7 +15,7 @@ class CocktailIndex extends React.Component {
       <div className="columns is-multiline">
 
         {this.props.drinks.map(cocktail =>
-          <div key={cocktail.idDrink} className="column is-one-fifth-desktop is-one-half-tablet">
+          <div key={cocktail.idDrink} className="column is-one-fifth-desktop is-one-third-tablet">
             <Link to={`/cocktails/${cocktail.idDrink}`}>
               <CocktailCard {...cocktail}/>
             </Link>
