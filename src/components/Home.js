@@ -59,8 +59,8 @@ class Home extends React.Component {
                 </div>
               </div>
 
-              <div className="field">
-                <div className="control">
+              <div className="field has-addons">
+                <div className="control is-expanded">
                   <input
                     className="input"
                     type="text"
@@ -69,8 +69,10 @@ class Home extends React.Component {
                     onChange={this.handleChange}
                   />
                 </div>
+                <div className="control">
+                  <a className="button">Search</a>
+                </div>
               </div>
-              <button className="button is-primary">Search</button>
             </form>
           </section>
           <section className="section">

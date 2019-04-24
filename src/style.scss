@@ -24,7 +24,7 @@ img.random-image {
 
 img.cocktail-show-image {
   border-radius: 5px;
-  box-shadow: 5px 5px 10px 0 rgba(0,0,0,0.5);
+  box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.5);
 }
 
 .title, .subtitle {
@@ -35,4 +35,25 @@ img.cocktail-show-image {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+}
+
+form {
+  width: 100%;
+}
+
+a.button {
+  background-color: #d1003b;
+  color: #fff;
+}
+
+.button.random-cocktail-button {
+  margin-bottom: 20px;
+  background-color: #d1003b;
+  color: #fff;
+
+  &:active, &:hover, &:focus {
+    color: #fff;
+    outline: none;
+    border-color: #fff;
+  }
 }
