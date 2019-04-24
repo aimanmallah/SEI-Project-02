@@ -41,8 +41,6 @@ class RandomCocktail extends React.Component {
                 <Link to={`/cocktails/${this.state.cocktail.id}`}><div className="is-size-3">{this.state.cocktail.name}</div></Link>
               </div>
             </div>
-
-
           </div>
         </div>
       </div>
