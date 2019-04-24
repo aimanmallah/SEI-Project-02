@@ -2,6 +2,7 @@
 
 $primary-font: 'Anton', sans-serif;
 $secondary-font: 'Open Sans', sans-serif;
+$primary-color: #d1003b;
 
 * {
   box-sizing: border-box;
@@ -27,8 +28,31 @@ img.cocktail-show-image {
   box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.5);
 }
 
-.title, .subtitle {
-  font-family: $primary-font;
+div {
+  .title{
+    font-family: $primary-font;
+    color: $primary-color;
+  }
+  .subtitle {
+    font-family: $primary-font;
+  }
+
+
+
+}
+
+.input {
+  border-color: #fff;
+  outline: none;
+
+    &:focus:hover:active {
+      border-color: #fff;
+      outline: none;
+  }
+}
+
+.card-content > .subtitle {
+  color: #000000;
 }
 
 .column.headerDetails {
@@ -41,19 +65,78 @@ form {
   width: 100%;
 }
 
-a.button {
-  background-color: #d1003b;
+.button.search-button {
+  background-color: $primary-color;
   color: #fff;
+
+  &:focus{
+    color: #fff;
+    outline: none;
+    border-color: #fff;
+
+  }
+
+  &:hover{
+    color: #fff;
+
+    animation: shake 0.8s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  @keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+
+    40%, 60% {
+      transform: translate3d(4px, 0, 0);
+    }
+  }
 }
 
 .button.random-cocktail-button {
   margin-bottom: 20px;
-  background-color: #d1003b;
+  background-color: $primary-color;
   color: #fff;
 
   &:active, &:hover, &:focus {
     color: #fff;
     outline: none;
     border-color: #fff;
+  }
+}
+
+.button.random-cocktail-button:hover {
+  animation: shake 0.8s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
   }
 }

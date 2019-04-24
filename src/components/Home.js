@@ -47,7 +47,6 @@ class Home extends React.Component {
         <div className="container">
           <section className="section" ref={elem => this.searchResultsSection = elem}>
             <form onSubmit={this.handleSubmit}>
-
               <div className="field">
                 <div className="control" onChange={this.handleFilterChange}>
                   <label className="radio">
@@ -58,7 +57,6 @@ class Home extends React.Component {
                   </label>
                 </div>
               </div>
-
               <div className="field has-addons">
                 <div className="control is-expanded">
                   <input
@@ -70,7 +68,7 @@ class Home extends React.Component {
                   />
                 </div>
                 <div className="control">
-                  <a className="button">Search</a>
+                  <button className="button search-button">Search</button>
                 </div>
               </div>
             </form>
