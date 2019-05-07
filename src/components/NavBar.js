@@ -19,7 +19,7 @@ class Navbar extends React.Component {
       <nav className="navbar">
         <div className="container">
           <div className="navbar-brand">
-            <Link to="/" className="navbar-item is-size-1"><img src="../images/cocktailbored.png" alt="Cocktail Bored" /></Link>
+            <Link to="/" className="navbar-item is-size-1"><img src="./images/cocktailbored.png" alt="Cocktail Bored" /></Link>
             <a role="button"
               className={`navbar-burger${this.state.active ? ' is-active' : ''}`} onClick={this.toggleActive}>
               <span aria-hidden="true"></span>
