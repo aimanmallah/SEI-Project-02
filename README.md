@@ -20,8 +20,6 @@
 ## Cocktail DB API - React project
 This was a pair-coding, hackathon project with [Richard Yarwood](https://github.com/richyarwood) at General Assembly.
 
-![image](https://user-images.githubusercontent.com/47919053/60401794-5bcf2f00-9b7e-11e9-8504-880e9d97015b.png)
-
 The brief was to:
 * Consume a publicly available API
 * Deliver the data back in a React app
@@ -32,9 +30,13 @@ The site can be run locally by cloning the repository and typing ```npm i``` and
 
 ### App overview
 
+![image](https://user-images.githubusercontent.com/47919053/60401794-5bcf2f00-9b7e-11e9-8504-880e9d97015b.png)
+
 The application allows a user to search for a cocktail by single ingredient or name of the cocktail, returning the results under the search input.
 
 Clicking on a cocktail provides information on the ingredients and instructions on how to make the cocktail.
+
+![image](https://user-images.githubusercontent.com/47919053/60401819-ba94a880-9b7e-11e9-8105-c92181ff54ba.png)
 
 Similar cocktails are displayed under each cocktail. This filter is based on the ingredients of the cocktail on display.
 
