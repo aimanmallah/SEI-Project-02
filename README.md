@@ -2,6 +2,8 @@
 
 # GA-SEI-PROJECT-02
 
+![image](https://user-images.githubusercontent.com/47919053/60401807-87eab000-9b7e-11e9-9604-59bbf35f3f41.png)
+
 # Timeframe
 1.5 days
 
@@ -17,6 +19,8 @@
 
 ## Cocktail DB API - React project
 This was a pair-coding, hackathon project with [Richard Yarwood](https://github.com/richyarwood) at General Assembly.
+
+![image](https://user-images.githubusercontent.com/47919053/60401794-5bcf2f00-9b7e-11e9-8504-880e9d97015b.png)
 
 The brief was to:
 * Consume a publicly available API
